@@ -1,20 +1,19 @@
 name: CI/CD Pipeline
 
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+      - main
 
 jobs:
-    build:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-    uses: actions/checkout@v4
-        
-    - name:  Set up Docker Buildx
-    uses: docker/setup-buildx-action@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Build Docker image
-    run: docker build -t devops-ci-cd-app .
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
+      - name: Build Docker image
+        run: docker build -t devops-ci-cd-app .
